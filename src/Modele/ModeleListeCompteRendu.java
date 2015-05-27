@@ -7,6 +7,7 @@ import javax.swing.table.*;
 
 import Controleur.Controleur;
 import Entities.CompteRendu;
+import Views.EcouteurBoutonVisiteurs;
 
 /** modele de la liste des compte rendus
  * 
@@ -17,14 +18,17 @@ public class ModeleListeCompteRendu extends AbstractTableModel{
 	private Controleur controleur ;
 	private static final long serialVersionUID = 1L;
 	private java.util.List<CompteRendu> compteRendus  ;
-	private final String[] entetes = {"Numero du rapport","Numero du praticien","Date de Redaction","Date De Visite","Etat","Afficher le Rapport" };
+	private final String[] entetes = {"Numero du rapport","Numero du praticien","Date de Redaction","Etat","Afficher le Rapport" };
 	private ModeleAppliCR modele ;
+	private String visMatricule;
+	private EcouteurBoutonVisiteurs ecouteur;
 	
 	public ModeleListeCompteRendu(ModeleAppliCR modele, Controleur controleur){
 		super() ;
 		this.modele = modele ;
 		this.controleur = controleur;
-		compteRendus = this.modele.getCompteRendusDunVisiteur() ;
+		visMatricule = EcouteurBoutonVisiteurs.getVisMatricule();
+		compteRendus = this.modele.getCompteRendu(visMatricule) ;
 	}
 	
 	@Override
@@ -115,9 +119,9 @@ public class ModeleListeCompteRendu extends AbstractTableModel{
 				return compteRendus.get(indiceLigne).getRapDate() ;
 			case 3 :
 				return compteRendus.get(indiceLigne).getEtat();
+//			case 4 :
+//				return compteRendus.get(indiceLigne).getDateVisite();
 			case 4 :
-				return compteRendus.get(indiceLigne).getDateVisite();
-			case 5 :
 				return "Consulter CR" ;
 			default :
 			return null ;
@@ -142,9 +146,8 @@ public class ModeleListeCompteRendu extends AbstractTableModel{
 			case 3:
 				return false;
 			case 4:
-				return false;
-			case 5:
 				return true;
+			
 			default:
 				return false;
 		}

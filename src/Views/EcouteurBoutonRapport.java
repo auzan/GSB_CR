@@ -72,7 +72,7 @@ public class EcouteurBoutonRapport extends JFrame implements ActionListener {
 			
 			try {
 				switch(this.column){
-					case 5 :
+					case 4 :
 						System.out.println("----------------------------------------") ;
 						System.out.println("[Afficher ]");
 						if(sRapLu == 0){

@@ -113,7 +113,7 @@ public class VueListeComptesRendus extends JPanel {
 		this.tableauCR.getColumn("Numero du praticien").setCellRenderer(new RenduCellulesRapport()) ;
 		this.tableauCR.getColumn("Numero du rapport").setCellRenderer(new RenduCellulesRapport()) ;
 		this.tableauCR.getColumn("Date de Redaction").setCellRenderer(new RenduCellulesRapport()) ;
-		this.tableauCR.getColumn("Date de Visite").setCellRenderer(new RenduCellulesRapport()) ;
+//		this.tableauCR.getColumn("Date de Visite").setCellRenderer(new RenduCellulesRapport()) ;
 		this.tableauCR.getColumn("Etat").setCellRenderer(new RenduCellulesRapport()) ;
 		this.tableauCR.getColumn("Afficher le Rapport").setCellRenderer(new RenduBoutonVisiteurs()) ;
 		

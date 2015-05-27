@@ -25,6 +25,7 @@ public class EcouteurBoutonVisiteurs extends JFrame implements ActionListener {
 	private int row ;
 	private int column ;
 	private JTable table ;
+	public static String VisMatricule;
 
 	
 	/** Modifier l'indice de la ligne
@@ -55,7 +56,7 @@ public class EcouteurBoutonVisiteurs extends JFrame implements ActionListener {
 	public void actionPerformed(ActionEvent e) {
 		Controleur controleur = ((ModeleListeVisiteurs)this.table.getModel()).getControleur() ;
 		ModeleAppliCR modele = ((ModeleListeVisiteurs) this.table.getModel()).getModele() ;
-		String VisMatricule = ((ModeleListeVisiteurs)this.table.getModel()).getNumeroVis(this.row) ;
+		 VisMatricule = ((ModeleListeVisiteurs)this.table.getModel()).getNumeroVis(this.row) ;
 		String VisNom = ((ModeleListeVisiteurs)this.table.getModel()).getNomVis(this.row) ;
 		String VisPrenom = ((ModeleListeVisiteurs)this.table.getModel()).getPrenomVis(this.row) ;
 		switch(this.column){
@@ -65,6 +66,14 @@ public class EcouteurBoutonVisiteurs extends JFrame implements ActionListener {
 					
 				break ;
 			}
+	}
+
+	public static String getVisMatricule() {
+		return VisMatricule;
+	}
+
+	public static void setVisMatricule(String visMatricule) {
+		VisMatricule = visMatricule;
 	}
 }
 

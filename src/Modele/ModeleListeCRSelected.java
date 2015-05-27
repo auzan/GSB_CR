@@ -17,14 +17,14 @@ public class ModeleListeCRSelected extends AbstractTableModel{
 	private Controleur controleur ;
 	private static final long serialVersionUID = 1L;
 	private CompteRendu compteRendusSelected  ;
-	private final String[] entetes = {"numero du rapport","numero du praticien","Date de Redaction","Date de Visite","Bilan", "Motif", "Coef Confiance"};
+	private final String[] entetes = {"Numéro du rapport","Numéro du praticien","Date de Rédaction","Bilan", "Motif"};
 	private ModeleAppliCR modele ;
 	
 	public ModeleListeCRSelected(ModeleAppliCR modele, Controleur controleur){
 		super() ;
 		this.modele = modele ;
 		this.controleur = controleur;
-		compteRendusSelected = this.modele.getContreRenduSelected() ;
+		compteRendusSelected = this.modele.getCompteRenduSelected() ;
 	}
 	
 	@Override
@@ -78,14 +78,13 @@ public class ModeleListeCRSelected extends AbstractTableModel{
 				return String.class ;
 			case 2 :
 				return Date.class ;
+		
 			case 3 :
-				return Date.class ;
+				return String.class;
 			case 4 :
 				return String.class;
-			case 5 :
-				return String.class;
-			case 6 :
-				return float.class;
+//			case 5 :
+//				return float.class;
 			default :
 				return Object.class ;
 		}
@@ -117,30 +116,25 @@ public class ModeleListeCRSelected extends AbstractTableModel{
 				} catch (Exception e1) {
 					System.err.println(e1.getMessage());
 				}
+		
 			case 3 :
-				try{
-				return compteRendusSelected.getDateVisite() ;
-				} catch (Exception e1) {
-					System.err.println(e1.getMessage());
-				}
-			case 4 :
 				try{
 				return compteRendusSelected.getRapBilan();
 				} catch (Exception e1) {
 					System.err.println(e1.getMessage());
 				}
-			case 5 :
+			case 4 :
 				try{
 				return compteRendusSelected.getRapMotif();
 				} catch (Exception e1) {
 					System.err.println(e1.getMessage());
 				}
-			case 6 :
-				try{
-				return compteRendusSelected.getCoefConfiance();
-				} catch (Exception e1) {
-					System.err.println(e1.getMessage());
-				}
+//			case 5 :
+//				try{
+//				return compteRendusSelected.getCoefConfiance();
+//				} catch (Exception e1) {
+//					System.err.println(e1.getMessage());
+//				}
 			default :
 			return null ;
 		}

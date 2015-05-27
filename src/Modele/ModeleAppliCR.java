@@ -125,9 +125,9 @@ public class ModeleAppliCR {
 	 * @return liste des Rapports
 	 */
 	private List<CompteRendu> compteRendu ;
-	public List<CompteRendu> getCompteRendu(String mois, String annee, String visMatricule){
+	public List<CompteRendu> getCompteRendu(String visMatricule){
 		compteRendu = new ArrayList<CompteRendu>() ;
-		String queryCR = "SELECT RAP_NUM, RAPPORT_VISITE.PRA_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_ETAT FROM (RAPPORT_VISITE INNER JOIN PRATICIEN ON RAPPORT_VISITE.PRA_NUM = PRATICIEN.PRA_NUM) INNER JOIN VISITEUR ON RAPPORT_VISITE.VIS_MATRICULE = VISITEUR.VIS_MATRICULE WHERE RAPPORT_VISITE.VIS_MATRICULE = ?;";
+		String queryCR = "SELECT RAP_NUM, RAPPORT_VISITE.COEF_CONFIANCE, RAPPORT_VISITE.PRA_NUM, RAP_DATE, RAP_BILAN, RAP_MOTIF, RAP_ETAT FROM (RAPPORT_VISITE INNER JOIN PRATICIEN ON RAPPORT_VISITE.PRA_NUM = PRATICIEN.PRA_NUM) INNER JOIN VISITEUR ON RAPPORT_VISITE.VIS_MATRICULE = VISITEUR.VIS_MATRICULE WHERE RAPPORT_VISITE.VIS_MATRICULE = ?;";
 		
 		 try {
 			 connexion = ConnexionBD.getConnexion() ;
@@ -160,7 +160,7 @@ public class ModeleAppliCR {
 	/** Retourne le compte-rendu sélectionné
 	 * @return Le contre-rendu sélectionné
 	 */
-	public CompteRendu getContreRenduSelected() {
+	public CompteRendu getCompteRenduSelected() {
 	return compteRenduSelected ;
 	}
 	
